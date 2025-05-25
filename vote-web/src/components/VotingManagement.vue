@@ -73,10 +73,13 @@ export default {
       }
 
       const duplicateItem = this.votingItems.find(
-        (item) => item.votingItemNo === parseInt(this.newVotingItemNo)
+        (item) =>
+          item.votingItemNo === parseInt(this.newVotingItemNo) ||
+          item.votingItemName.trim() === this.newVotingItemName.trim()
       );
+
       if (duplicateItem) {
-        alert("該投票項目編號已存在，請使用不同的編號。");
+        alert("投票項目編號或名稱已存在，請勿重複。");
         return;
       }
 
